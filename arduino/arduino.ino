@@ -50,7 +50,7 @@ void checkSolar() {
   intensity = analogRead(solarPin);
   bool wasNight = isNight;
   isNight = intensity <= nightIntensity;
-  if (!(isNight && wasNight)) {
+  if (isNight != wasNight) {
     digitalWrite(LPLedPin, isNight);
     if (isNight) {
       attachInterrupt(0, motion, RISING);
